@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "550180228122",
+    "firebase_url": "https://worldsocialmap.firebaseio.com",
+    "project_id": "worldsocialmap",
+    "storage_bucket": "worldsocialmap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550180228122:android:8a8e82afd44f3fe0",
+        "android_client_info": {
+          "package_name": "com.map.social.mariia.worldsocialmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550180228122-3c0nom7kcueqkaqrfah95bogqmekrmh5.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "550180228122-487u24ue836mfcge8asvdlaapjm6rmua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.map.social.mariia.worldsocialmap",
+            "certificate_hash": "4208cd281dcff6ea0c72e40bada93701731fbfa0"
+          }
+        },
+        {
+          "client_id": "550180228122-mtdoll78ee6eqib8bglprdmsm9lv6gu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy7nzujZFUQfdbSczpR62RsaozJlrWkU4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550180228122-3c0nom7kcueqkaqrfah95bogqmekrmh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
