@@ -6,11 +6,11 @@
             android:id="@+id/user_page"
             android:title="User Page" />
         <item
-            android:id="@+id/companies"
-            android:title="Insurance Companies" />
+            android:id="@+id/visited_places"
+            android:title="Visited places" />
         <item
             android:id="@+id/wallet"
-            android:title="Wallet" />
+            android:title="Want to visit" />
     </group>
 
 

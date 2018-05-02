@@ -3,11 +3,11 @@
     tools:context="com.map.social.mariia.worldsocialmap.MainActivity">
     <item
         android:id="@+id/action_example"
-        android:showAsAction="withText|ifRoom"
+        android:showAsAction="ifRoom"
         android:title="@string/action_example" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        android:showAsAction="withText"
         android:title="@string/action_settings" />
 </menu>
