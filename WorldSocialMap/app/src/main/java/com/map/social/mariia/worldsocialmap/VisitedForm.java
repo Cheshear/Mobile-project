@@ -118,6 +118,7 @@ public class VisitedForm extends Fragment implements View.OnClickListener{
         DatabaseReference visitedPlaceReference = ref.child("visited_place").child(userID);
         visitedPlaceReference
                 .child("country_list")
+                .push()
                 .setValue(new Country(country));
         visitedPlaceReference
                 .child(visitedPlace.getVisitedCountry())

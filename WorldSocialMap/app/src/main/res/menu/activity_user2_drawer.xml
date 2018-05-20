@@ -9,7 +9,7 @@
             android:id="@+id/visited_places"
             android:title="Visited places" />
         <item
-            android:id="@+id/wallet"
+            android:id="@+id/wish-places"
             android:title="Want to visit" />
     </group>
 

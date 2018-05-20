@@ -40,6 +40,11 @@ public class VisitedPlaces extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        return inflater.inflate(R.layout.fragment_visited_places, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.list_places);
 
         recyclerView.setHasFixedSize(true);
@@ -82,8 +87,6 @@ public class VisitedPlaces extends Fragment {
 
             }
         });
-
-        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
 }

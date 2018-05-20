@@ -9,6 +9,9 @@ public class WantPlace {
     private String wishCity;
     private String place;
 
+    public WantPlace() {
+    }
+
     public WantPlace(String visitedCountry, String visitedCity, String place) {
         this.wishCountry = visitedCountry;
         this.wishCity = visitedCity;

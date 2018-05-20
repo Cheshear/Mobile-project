@@ -1,7 +1,7 @@
 package com.map.social.mariia.worldsocialmap;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,7 +38,12 @@ public class WishPlaces extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_wish_places, container, false);
+    }
 
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.list_wish_places);
 
         recyclerView.setHasFixedSize(true);
@@ -81,7 +86,6 @@ public class WishPlaces extends Fragment {
 
             }
         });
-
-        return super.onCreateView(inflater, container, savedInstanceState);
     }
+
 }

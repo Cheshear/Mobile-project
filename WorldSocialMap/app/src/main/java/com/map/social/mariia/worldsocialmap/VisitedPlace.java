@@ -14,6 +14,9 @@ public class VisitedPlace {
     private String place;
     private String comment;
 
+    public VisitedPlace() {
+    }
+
     public VisitedPlace(String visitedCountry,
                         String visitedCity,
                         String place,

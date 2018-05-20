@@ -33,6 +33,14 @@ public class CountryList extends ListFragment {
     ArrayList<String> countries;
     final String TAG = "tag";
     String userID="";
+    FirebaseListAdapter<Country> fireAdapter;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        fireAdapter.startListening();
+        getListView().setChoiceMode(ListView.CHOICE_MODE_NONE);
+    }
 
 
     @Override
@@ -51,31 +59,18 @@ public class CountryList extends ListFragment {
 
         countries = new ArrayList<>();
 
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Country country = dataSnapshot.getValue(Country.class);
-                Log.e(TAG, country.getCountry());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        FirebaseListOptions<String> options = new FirebaseListOptions.Builder<String>()
-                .setQuery(db, String.class)
-                .setLayout(android.R.layout.simple_list_item_2)
+        FirebaseListOptions<Country> options = new FirebaseListOptions.Builder<Country>()
+                .setQuery(db, Country.class)
+                .setLayout(android.R.layout.simple_list_item_1)
                 .build();
 
-        FirebaseListAdapter<String> fireAdapter = new FirebaseListAdapter<String>
+        fireAdapter = new FirebaseListAdapter<Country>
                 (options) {
             @Override
-            protected void populateView(View v, String model, int position) {
-                ((TextView)v.findViewById(android.R.id.text1)).setText(model);
-                Log.e("model", model);
-                countries.add(model);
+            protected void populateView(View v, Country model, int position) {
+                ((TextView)v.findViewById(android.R.id.text1)).setText(model.getCountry());
+                Log.e("model", model.getCountry());
+                countries.add(model.getCountry());
             }
         };
 
@@ -83,14 +78,6 @@ public class CountryList extends ListFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        /** Setting the multiselect choice mode for the listview */
-        getListView().setChoiceMode(ListView.CHOICE_MODE_NONE);
-    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -105,5 +92,11 @@ public class CountryList extends ListFragment {
         fragmentTransaction.replace(R.id.content_user2, visitedPlaces);
         fragmentTransaction.commit();
         // Capture the layout's TextView and set the string as its text
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        fireAdapter.stopListening();
     }
 }

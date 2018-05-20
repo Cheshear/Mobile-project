@@ -139,19 +139,6 @@
                     android:paddingRight="10dp"
                     android:text="@string/want_to_visit_button"
                     android:textColor="@color/colorPrimaryDark" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/logout_btn"
-                    style="@style/button_style"
-                    android:layout_below="@+id/want_to_visit_btn"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/logout"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

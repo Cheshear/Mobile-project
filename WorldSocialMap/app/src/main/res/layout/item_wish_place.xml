@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mint">
     <android.support.v7.widget.CardView
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/wish_cv"
@@ -13,13 +15,29 @@
             android:padding="16dp"
             >
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/wish_city" />
+                android:text="@string/city"
+                android:id="@+id/label_wish_city"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/wish_place" />
+                android:id="@+id/wish_city"
+                android:layout_toRightOf="@+id/label_wish_city"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wish_city"
+                android:text="@string/place"
+                android:id="@+id/label_wish_place"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wish_city"
+                android:id="@+id/wish_place"
+                android:layout_toRightOf="@+id/label_wish_place"
+                android:layout_marginLeft="10dp"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

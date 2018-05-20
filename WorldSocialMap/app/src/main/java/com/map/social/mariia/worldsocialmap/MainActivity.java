@@ -4,12 +4,14 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,13 +19,16 @@ import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        GoogleApiClient.OnConnectionFailedListener {
 
     private TextView name;
     private TextView surename;
@@ -106,9 +111,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.visited_places:
                 newFragment = new CountryList();
                 break;
-//            case R.id.wallet:
-//                newFragment = new walletInformation();
-//                break;
+            case R.id.wish_places:
+                newFragment = new CountryWishList();
+                break;
 
         }
 
@@ -136,5 +141,9 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
+    // GoogleApiClient.OnConnectionFailedListener
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult var1) {
+        Log.e(">>>>>>>>>>>>", "Connection failed");
+    }
 }

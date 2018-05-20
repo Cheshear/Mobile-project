@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -84,9 +86,9 @@ public class WantForm extends Fragment implements View.OnClickListener {
         }
 
         String userID = "";
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            userID = user.getUid();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
+        if (account != null) {
+            userID = account.getId();
         } else {
             Log.e("error","We have big troubles");
         }
@@ -95,6 +97,7 @@ public class WantForm extends Fragment implements View.OnClickListener {
         DatabaseReference wantPlaceReference = mDatabase.child("wanted_place").child(userID);
         wantPlaceReference
                 .child("country_list")
+                .push()
                 .setValue(new Country(country));
         wantPlaceReference
                 .child(wantPlase.getWishCountry())

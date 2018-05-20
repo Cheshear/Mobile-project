@@ -13,8 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +36,6 @@ public class UserPage extends Fragment {
     private CircleImageView imageView;
     private Button addWant;
     private Button addVisited;
-    private Button logoutBtn;
 
     public UserPage() {
         // Required empty public constructor
@@ -47,14 +52,13 @@ public class UserPage extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
+        final GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
         email = (TextView) getView().findViewById(R.id.email_value);
         name = (TextView) getView().findViewById(R.id.name_value);
         surename = (TextView) getView().findViewById(R.id.surename_value);
         imageView = (CircleImageView) getView().findViewById(R.id.profile_image);
         addWant = (Button) getView().findViewById(R.id.want_to_visit_btn);
         addVisited = (Button) getView().findViewById(R.id.visited_place_btn);
-        logoutBtn = (Button) getView().findViewById(R.id.logout_btn);
 
         if (account != null) {
             String personGivenName = account.getGivenName();
@@ -91,15 +95,7 @@ public class UserPage extends Fragment {
             };
             addVisited.setOnClickListener(addVisitedListener);
 
-            View.OnClickListener logoutBtnListener = new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(getActivity(), AuthorizationActivity.class);
-                    startActivity(intent);
-                }
-            };
-            logoutBtn.setOnClickListener(logoutBtnListener);
+
         }
     }
 }

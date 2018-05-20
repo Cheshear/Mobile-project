@@ -102,4 +102,5 @@ public class AuthorizationActivity extends AppCompatActivity implements
             signIn();
         }
     }
+
 }
