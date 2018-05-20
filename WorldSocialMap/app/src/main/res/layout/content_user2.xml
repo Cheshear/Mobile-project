@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:id = "@+id/content_user2"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.mariia.withoutdoctor.UserActivity2"
     tools:showIn="@layout/app_bar_user2">
 
 </android.support.constraint.ConstraintLayout>
